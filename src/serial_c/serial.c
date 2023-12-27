@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <omp.h>
 
 int isAlive(int i, int j, int **board, int n, int m) {
   if (i < 0 || j < 0 || i == n || j == m || board[i][j] == 0) return 0;
@@ -28,11 +27,8 @@ void gameOfLife(int **board, int boardSize, int boardColSize) {
   int n = boardSize;
   int m = boardColSize;
   int resBoard[n][m];
-  int i, j;
-
-#pragma omp parallel for private(i, j) shared(resBoard)
-  for (i = 0; i < n; i++)
-    for (j = 0; j < m; j++)
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < m; j++)
       if (board[i][j] == 0) {
         if (checkIfRevive(i, j, board, n, m))
           resBoard[i][j] = 1;
@@ -94,6 +90,6 @@ int main(int argc, char *argv[]) {
 
   fclose(inputFile);
   fclose(outputFile);
-
+  
   return 0;
 }
