@@ -1,5 +1,11 @@
 #include "conway_utils.h"
 
+// Minimul a doua numere intregi
+int min(int a, int b) { return a < b ? a : b; }
+
+// Minimul a doua numere intregi
+int max(int a, int b) { return a > b ? a : b; }
+
 int isAlive(int i, int j, bool **board, int n, int m) {
   	if (i < 0 || j < 0 || i == n || j == m || board[i][j] == 0)
 		return 0;
