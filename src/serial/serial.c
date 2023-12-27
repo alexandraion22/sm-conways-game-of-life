@@ -1,5 +1,4 @@
 #include "../utils/conway_utils.h"
-#include <omp.h>
 
 void gameOfLife(bool **board, int n, int m)
 {
@@ -7,12 +6,8 @@ void gameOfLife(bool **board, int n, int m)
 	for (int i = 0; i < n; i++)
 		resBoard[i] = (bool *)malloc(m * sizeof(bool));
 
-	int i,j;
-
-	// Paralelizare utilizand openmp
-	#pragma omp parallel for private(i, j) shared(resBoard) collapse(2)
-  	for (i = 0; i < n; i++)
-    	for (j = 0; j < m; j++)
+  	for (int i = 0; i < n; i++)
+    	for (int j = 0; j < m; j++)
       		if (board[i][j] == 0) {
         		if (checkIfRevive(i, j, board, n, m))
           			resBoard[i][j] = 1;
@@ -46,7 +41,7 @@ int main(int argc, char *argv[]) {
 	char fileNameIn[100];
 	char fileNameOut[100];
 	sprintf(fileNameIn, "../../input/%s", argv[1]);
-	sprintf(fileNameOut, "../../output/openmp/result_of_%s", argv[1]);
+	sprintf(fileNameOut, "../../output/serial/result_of_%s", argv[1]);
 
 	FILE *inputFile = fopen(fileNameIn, "r");
 	FILE *outputFile = fopen(fileNameOut, "w");
