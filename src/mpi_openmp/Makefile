@@ -1,5 +1,5 @@
 build:
-	mpicc mpi_pthreads.c ../utils/conway_utils.c -o game_of_life -lpthread
+	mpicc mpi_openmp.c ../utils/conway_utils.c -o game_of_life -fopenmp
 clean:
 	rm game_of_life
 clean_output:
