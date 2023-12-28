@@ -36,17 +36,22 @@ Am preluat ideea de problemă de pe Leetcode, unde am întâlnit-o prima dată. 
 
     cd ./src/mpi
     make
-    mpirun -np <Numar_thread-uri> ./game_of_life <Nume_Fisier>
+    mpirun -np <Numar_procese> ./game_of_life <Nume_Fisier>
+
+#### MPI + Pthreads
+
+    cd ./src/mpi_pthreads
+    make
+    mpirun -np <Numar_procese> ./game_of_life <Nume_Fisier> <Numar_threaduri_pe_proces>
+
+#### MPI + OpenMP
+
+    cd ./src/mpi_pthreads
+    make
+    export OMP_NUM_THREADS=<Numar_threaduri_pe_proces>
+    mpirun -np <Numar_procese> ./game_of_life <Nume_Fisier>
 
 ## Referinte
 
 1. [Leetcode - Game of Life](https://leetcode.com/problems/game-of-life/)
 2. [Wikipedia - Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
-
-## TODO
-
-    - adaugat Makefile in variante paralele - Daria
-    - adaugat MPI - Alexandra
-    - adaugat OpenMP - Daria
-    - adaugat pthreads - Daria
-    - adaugat script generare input
