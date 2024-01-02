@@ -7,7 +7,7 @@
 int main(int argc, char *argv[]) {
 	
     if (argc < 3) {
-		printf("Wrong number of arguments. The use of the program is ./generate <n> <m>");
+		printf("Wrong number of arguments. The use of the program is ./generate <n> <m>\n");
 		return 0;
 	}
 
