@@ -2,12 +2,13 @@
 #include <pthread.h>
 
 typedef struct {
-  int startRow;
-  int endRow;
-  int n;
-  int m;
-  bool **board;
-  bool **resBoard;
+    int startRow;
+    int endRow;
+    int n;
+    int m;
+    bool **board;
+    bool **resBoard;
+    pthread_barrier_t *barrier;
 } thread_arg;
 
 void *gameOfLifeThread(void *arg) {
@@ -36,6 +37,15 @@ void *gameOfLifeThread(void *arg) {
 			}
 		}
 	}
+
+    // Bariera
+    pthread_barrier_wait(threadArg->barrier);
+
+    // Eliberare memorie si salvare rezultat
+	for (int i = startRow; i < endRow; i++) {
+		for (int j = 0; j < m; j++) 
+			board[i][j] = resBoard[i][j];
+	}
 	return NULL;
 }
 
@@ -46,6 +56,10 @@ void gameOfLife(bool **board, int n, int m, int numThreads) {
 
 	pthread_t threads[numThreads];
 	thread_arg threadArgs[numThreads];
+    
+    // Initializare bariera
+    pthread_barrier_t barrier;
+    pthread_barrier_init(&barrier,NULL,numThreads);
 
 	int rowsPerThread = n / numThreads;
 
@@ -60,21 +74,18 @@ void gameOfLife(bool **board, int n, int m, int numThreads) {
 		threadArgs[i].m = m;
 		threadArgs[i].board = board;
 		threadArgs[i].resBoard = resBoard;
+        threadArgs[i].barrier = &barrier;
 
 		pthread_create(&threads[i], NULL, gameOfLifeThread, (void *)&threadArgs[i]);
-	} 
+	}
 
 	// Join thread-uri
 	for (int i = 0; i < numThreads; i++)
 		pthread_join(threads[i], NULL);
 
-	// Eliberare memorie si salvare rezultat
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < m; j++) 
-			board[i][j] = resBoard[i][j];
-		free(resBoard[i]);
-	}
-	free(resBoard);
+    pthread_barrier_destroy(&barrier);
+	
+    free(resBoard);
 }
 
 int main(int argc, char *argv[]) {
