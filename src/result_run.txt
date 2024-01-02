@@ -1,0 +1,278 @@
+Time for Pthreads Implementation with 1 thread(s)
+
+real	0m46.741s
+user	0m46.124s
+sys	0m0.530s
+
+Time for Pthreads Implementation with 2 thread(s)
+
+real	0m36.785s
+user	0m46.313s
+sys	0m0.781s
+
+Time for Pthreads Implementation with 4 thread(s)
+
+real	0m31.881s
+user	0m47.341s
+sys	0m0.944s
+
+Time for Pthreads Implementation with 8 thread(s)
+
+real	0m29.173s
+user	0m48.538s
+sys	0m0.876s
+
+Time for Pthreads Implementation with 16 thread(s)
+
+real	0m27.771s
+user	0m50.845s
+sys	0m0.817s
+rm game_of_life
+gcc openmp.c ../utils/conway_utils.c -o game_of_life -fopenmp
+
+Time for OpenMP Implementation with 1 thread(s)
+
+real	0m45.701s
+user	0m45.191s
+sys	0m0.417s
+
+Time for OpenMP Implementation with 2 thread(s)
+
+real	0m36.326s
+user	0m46.042s
+sys	0m0.508s
+
+Time for OpenMP Implementation with 4 thread(s)
+
+real	0m31.533s
+user	0m46.968s
+sys	0m0.816s
+
+Time for OpenMP Implementation with 8 thread(s)
+
+real	0m29.150s
+user	0m48.740s
+sys	0m0.760s
+
+Time for OpenMP Implementation with 16 thread(s)
+
+real	0m27.801s
+user	0m50.967s
+sys	0m0.844s
+rm game_of_life
+mpicc mpi.c ../utils/conway_utils.c -o game_of_life
+
+Time for MPI Implementation with 1 process(es)
+
+real	0m49.325s
+user	0m47.076s
+sys	0m0.738s
+
+Time for MPI Implementation with 2 process(es)
+
+real	0m40.283s
+user	0m58.615s
+sys	0m6.134s
+
+Time for MPI Implementation with 4 process(es)
+
+real	0m35.332s
+user	1m19.187s
+sys	0m17.409s
+
+Time for MPI Implementation with 8 process(es)
+
+real	0m35.753s
+user	2m10.422s
+sys	0m42.961s
+
+Time for MPI Implementation with 16 process(es)
+
+real	0m37.521s
+user	4m0.336s
+sys	1m38.645s
+rm game_of_life
+mpicc mpi_pthreads.c ../utils/conway_utils.c -o game_of_life -lpthread
+
+Time for MPI+Pthreads Implementation with 1 process(es) each with 1 thread(s)
+
+real	0m50.032s
+user	0m47.789s
+sys	0m0.734s
+
+Time for MPI+Pthreads Implementation with 1 process(es) each with 2 thread(s)
+
+real	0m45.251s
+user	0m58.243s
+sys	0m0.820s
+
+Time for MPI+Pthreads Implementation with 1 process(es) each with 4 thread(s)
+
+real	0m45.032s
+user	0m58.113s
+sys	0m0.783s
+
+Time for MPI+Pthreads Implementation with 1 process(es) each with 8 thread(s)
+
+real	0m44.986s
+user	0m57.982s
+sys	0m0.828s
+
+Time for MPI+Pthreads Implementation with 1 process(es) each with 16 thread(s)
+
+real	0m44.920s
+user	0m58.005s
+sys	0m0.770s
+
+Time for MPI+Pthreads Implementation with 2 process(es) each with 1 thread(s)
+
+real	0m41.143s
+user	0m59.373s
+sys	0m5.822s
+
+Time for MPI+Pthreads Implementation with 2 process(es) each with 2 thread(s)
+
+real	0m38.493s
+user	1m10.081s
+sys	0m6.031s
+
+Time for MPI+Pthreads Implementation with 2 process(es) each with 4 thread(s)
+
+real	0m38.853s
+user	1m10.760s
+sys	0m6.020s
+
+Time for MPI+Pthreads Implementation with 2 process(es) each with 8 thread(s)
+
+real	0m38.552s
+user	1m10.276s
+sys	0m6.117s
+
+Time for MPI+Pthreads Implementation with 4 process(es) each with 1 thread(s)
+
+real	0m36.160s
+user	1m20.876s
+sys	0m17.107s
+
+Time for MPI+Pthreads Implementation with 4 process(es) each with 2 thread(s)
+
+real	0m33.573s
+user	1m21.410s
+sys	0m17.460s
+
+Time for MPI+Pthreads Implementation with 4 process(es) each with 4 thread(s)
+
+real	0m32.420s
+user	1m24.967s
+sys	0m16.586s
+
+Time for MPI+Pthreads Implementation with 8 process(es) each with 1 thread(s)
+
+real	0m36.823s
+user	2m13.643s
+sys	0m42.293s
+
+Time for MPI+Pthreads Implementation with 8 process(es) each with 2 thread(s)
+
+real	0m35.211s
+user	2m14.876s
+sys	0m41.729s
+
+Time for MPI+Pthreads Implementation with 16 process(es) each with 1 thread(s)
+
+real	0m37.873s
+user	3m58.116s
+sys	1m37.563s
+rm game_of_life
+mpicc mpi_openmp.c ../utils/conway_utils.c -o game_of_life -fopenmp
+
+Time for MPI+OpenMP Implementation with 1 process(es) each with 1 thread(s)
+
+real	0m49.777s
+user	0m47.590s
+sys	0m0.715s
+
+Time for MPI+OpenMP Implementation with 1 process(es) each with 2 thread(s)
+
+real	0m49.938s
+user	0m47.685s
+sys	0m0.752s
+
+Time for MPI+OpenMP Implementation with 1 process(es) each with 4 thread(s)
+
+real	0m50.121s
+user	0m47.861s
+sys	0m0.739s
+
+Time for MPI+OpenMP Implementation with 1 process(es) each with 8 thread(s)
+
+real	0m49.995s
+user	0m47.801s
+sys	0m0.694s
+
+Time for MPI+OpenMP Implementation with 1 process(es) each with 16 thread(s)
+
+real	0m50.012s
+user	0m47.802s
+sys	0m0.715s
+
+Time for MPI+OpenMP Implementation with 2 process(es) each with 1 thread(s)
+
+real	0m38.025s
+user	1m8.712s
+sys	0m6.095s
+
+Time for MPI+OpenMP Implementation with 2 process(es) each with 2 thread(s)
+
+real	0m37.620s
+user	1m8.390s
+sys	0m6.007s
+
+Time for MPI+OpenMP Implementation with 2 process(es) each with 4 thread(s)
+
+real	0m37.807s
+user	1m8.257s
+sys	0m5.845s
+
+Time for MPI+OpenMP Implementation with 2 process(es) each with 8 thread(s)
+
+real	0m37.724s
+user	1m8.598s
+sys	0m6.006s
+
+Time for MPI+OpenMP Implementation with 4 process(es) each with 1 thread(s)
+
+real	0m31.853s
+user	1m24.711s
+sys	0m16.703s
+
+Time for MPI+OpenMP Implementation with 4 process(es) each with 2 thread(s)
+
+real	0m32.062s
+user	1m24.460s
+sys	0m17.102s
+
+Time for MPI+OpenMP Implementation with 4 process(es) each with 4 thread(s)
+
+real	0m31.951s
+user	1m23.919s
+sys	0m17.345s
+
+Time for MPI+OpenMP Implementation with 8 process(es) each with 1 thread(s)
+
+real	0m33.572s
+user	2m22.864s
+sys	0m41.031s
+
+Time for MPI+OpenMP Implementation with 8 process(es) each with 2 thread(s)
+
+real	0m34.150s
+user	2m24.903s
+sys	0m43.355s
+
+Time for MPI+OpenMP Implementation with 16 process(es) each with 1 thread(s)
+
+real	0m37.090s
+user	4m15.473s
+sys	1m39.190s
+rm game_of_life

@@ -8,7 +8,7 @@ do
         do
             if [ $((i*j)) -le 16 ]
             then
-                echo "\nTime for MPI+Pthreads Implementation with $i process(es) each with $j thread(s)\n"
+                printf "\nTime for MPI+Pthreads Implementation with $i process(es) each with $j thread(s)\n"
                 time mpirun --mca btl ^openib -np $i ./game_of_life input_10000_x_20000.txt $j
             fi   
         done
