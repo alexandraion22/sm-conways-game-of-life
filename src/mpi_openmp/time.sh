@@ -8,9 +8,9 @@ do
         do
             if [ $((i*j)) -le 16 ]
             then
-                export OMP_NUM_THREADS=$i
+                export OMP_NUM_THREADS=$j
                 printf "\nTime for MPI+OpenMP Implementation with $i process(es) each with $j thread(s)\n"
-                time mpirun --mca btl ^openib -np $i ./game_of_life input_10000_x_20000.txt $j
+                time mpirun --mca btl ^openib -np $i ./game_of_life input_10000_x_20000.txt
             fi   
         done
 done

@@ -43,7 +43,7 @@ void *gameOfLifeThread(void *arg) {
     // Bariera
     pthread_barrier_wait(threadArg->barrier);
 
-    // Eliberare memorie si salvare rezultat
+    // Salvare rezultat
 	for (int i = startRow; i < endRow; i++) {
 		for (int j = 0; j < m; j++) 
 			board[i][j] = resBoard[i][j];

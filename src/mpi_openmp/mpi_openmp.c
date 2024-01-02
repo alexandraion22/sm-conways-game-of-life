@@ -27,15 +27,11 @@ void gameOfLife(bool **board, int n, int m)
           			resBoard[i][j] = 0;
       		}
   	
-	// Eliberare memorie si salvare rezultat
+	// Salvare rezultat
 	#pragma omp parallel for private(i, j) shared(board)
 	for (i = 0; i < n; i++)
-		{
-			for (j = 0; j < m; j++) 
-        		board[i][j] = resBoard[i][j];
-			free(resBoard[i]);
-		}
-	free(resBoard);
+		for (j = 0; j < m; j++) 
+        	board[i][j] = resBoard[i][j];
 }
 
 int main(int argc, char *argv[]) {
