@@ -30,8 +30,7 @@ int main(int argc, char *argv[]) {
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++)
-            fprintf(outputFile, "%d ", rand()%SIZE);
-		fprintf(outputFile, "\n");
+            fprintf(outputFile, "%c", rand()%SIZE);
 	}
 
 	fclose(outputFile);

@@ -2,40 +2,33 @@
 #include <mpi.h>
 #define MASTER 0
 
-void gameOfLife(bool **board, int n, int m)
+void gameOfLife(bool *board, int n, int m)
 {
-  	bool **resBoard = (bool **)malloc(n * sizeof(bool *));
-	for (int i = 0; i < n; i++)
-		resBoard[i] = (bool *)malloc(m * sizeof(bool));
+  	bool *resBoard = (bool *)malloc(n * m * sizeof(bool));
 
   	for (int i = 0; i < n; i++)
     	for (int j = 0; j < m; j++)
-      		if (board[i][j] == 0) {
+      		if (board[i*m+j] == 0) {
         		if (checkIfRevive(i, j, board, n, m))
-          			resBoard[i][j] = 1;
+          			resBoard[i*m+j] = 1;
         		else
-          			resBoard[i][j] = 0;
+          			resBoard[i*m+j] = 0;
       		} else {
         		if (checkIfStillLiving(i, j, board, n, m))
-          			resBoard[i][j] = 1;
+          			resBoard[i*m+j] = 1;
         		else
-          			resBoard[i][j] = 0;
+          			resBoard[i*m+j] = 0;
       		}
   	
 	// Eliberare memorie si salvare rezultat
-	for (int i = 0; i < n; i++)
-		{
-			for (int j = 0; j < m; j++) 
-        		board[i][j] = resBoard[i][j];
-			free(resBoard[i]);
-		}
+    memcpy(board,resBoard,(m*n)*sizeof(bool));
 	free(resBoard);
 }
 
 int main(int argc, char *argv[]) {
 
     unsigned int n, m, rank, size, start, end, localN, chunkSize;
-    bool **board;
+    bool *board;
     FILE *inputFile, *outputFile;
 
 	MPI_Init(&argc, &argv);
@@ -66,9 +59,7 @@ int main(int argc, char *argv[]) {
         // Alocare spatiu matrice de intrare
         fscanf(inputFile, "%d %d", &n, &m);
 
-        board = (bool **)malloc(n * sizeof(bool *));
-        for (int i = 0; i < n; i++)
-            board[i] = (bool *)malloc(m * sizeof(bool));
+        board = (bool *)malloc(n * m * sizeof(bool));
 
         // Citire date matrice de intrare
         read_input(board,n,m,inputFile);
@@ -91,7 +82,7 @@ int main(int argc, char *argv[]) {
                     
                     // Trimitere linii corespunzatoare fiecarui proces (+ linii pe o parte si cealalta, daca e posibil)
                     for(int j = start; j< end; j++)
-                        MPI_Send(board[j], chunkSize, MPI_C_BOOL, i, 0, MPI_COMM_WORLD);
+                        MPI_Send(&board[j*m], chunkSize, MPI_C_BOOL, i, 0, MPI_COMM_WORLD);
 				}
             
             // Calcul localN - cat din matrice proceseaza procesul 0
@@ -105,12 +96,10 @@ int main(int argc, char *argv[]) {
             
             localN = end - start;
 
-            board = (bool **)malloc(localN * sizeof(bool *));
-            for (int i = 0; i < localN; i++)
-                board[i] = (bool *)malloc(m * sizeof(bool));
+            board = (bool *)malloc(localN * m * sizeof(bool));
         
             for(int i = 0; i < localN; i++)
-			    MPI_Recv(board[i], chunkSize, MPI_C_BOOL, MASTER, 0, MPI_COMM_WORLD, NULL);
+			    MPI_Recv(&board[i*m], chunkSize, MPI_C_BOOL, MASTER, 0, MPI_COMM_WORLD, NULL);
 		}
 
     // Procesare date
@@ -124,7 +113,7 @@ int main(int argc, char *argv[]) {
                 end = min(n,(i+1) * (double)n/size);
                     
                 for(int j = start; j< end; j++)
-                    MPI_Recv(board[j], chunkSize, MPI_C_BOOL, i, 0, MPI_COMM_WORLD, NULL);
+                    MPI_Recv(&board[j*m], chunkSize, MPI_C_BOOL, i, 0, MPI_COMM_WORLD, NULL);
 			}
     else
     {
@@ -133,11 +122,9 @@ int main(int argc, char *argv[]) {
         end = min(n,(rank+1) * (double)n/size);
                     
         for(int j = start_send - start; j < end - start; j++)
-            MPI_Send(board[j], chunkSize, MPI_C_BOOL, MASTER, 0, MPI_COMM_WORLD);
+            MPI_Send(&board[j*m], chunkSize, MPI_C_BOOL, MASTER, 0, MPI_COMM_WORLD);
 
         // Eliberare memorie
-        for (int i = 0; i < localN; i++)
-            free(board[i]);
         free(board);
     }
 
@@ -146,8 +133,6 @@ int main(int argc, char *argv[]) {
         print_output(board,n,m,outputFile);
         
         // Eliberare memorie
-        for (int i = 0; i < n; i++)
-            free(board[i]);
         free(board);
     }
 

@@ -6,9 +6,8 @@ typedef struct {
     int endRow;
     int n;
     int m;
-    bool **board;
-    bool **resBoard;
-    pthread_barrier_t *barrier;
+    bool *board;
+    bool *resBoard;
 } thread_arg;
 
 void *gameOfLifeThread(void *arg) {
@@ -19,47 +18,32 @@ void *gameOfLifeThread(void *arg) {
 	int endRow = threadArg->endRow;
 	int n = threadArg->n;
 	int m = threadArg->m;
-	bool **board = threadArg->board;
-	bool **resBoard = threadArg->resBoard;
+	bool *board = threadArg->board;
+	bool *resBoard = threadArg->resBoard;
 
 	for (int i = startRow; i < endRow; i++) {
 		for (int j = 0; j < m; j++) {
-			if (board[i][j] == 0) {
+			if (board[i*m+j] == 0) {
 				if (checkIfRevive(i, j, board, n, m))
-					resBoard[i][j] = 1;
+					resBoard[i*m+j] = 1;
 				else
-					resBoard[i][j] = 0;
+					resBoard[i*m+j] = 0;
 			} else {
 				if (checkIfStillLiving(i, j, board, n, m))
-					resBoard[i][j] = 1;
+					resBoard[i*m+j] = 1;
 				else
-					resBoard[i][j] = 0;
+					resBoard[i*m+j] = 0;
 			}
 		}
-	}
-
-    // Bariera
-    pthread_barrier_wait(threadArg->barrier);
-
-    // Eliberare memorie si salvare rezultat
-	for (int i = startRow; i < endRow; i++) {
-		for (int j = 0; j < m; j++) 
-			board[i][j] = resBoard[i][j];
 	}
 	return NULL;
 }
 
-void gameOfLife(bool **board, int n, int m, int numThreads) {
-	bool **resBoard = (bool **)malloc(n * sizeof(bool *));
-	for (int i = 0; i < n; i++)
-		resBoard[i] = (bool *)malloc(m * sizeof(bool));
+void gameOfLife(bool *board, int n, int m, int numThreads) {
+	bool *resBoard = (bool *)malloc(n * m * sizeof(bool));
 
 	pthread_t threads[numThreads];
 	thread_arg threadArgs[numThreads];
-    
-    // Initializare bariera
-    pthread_barrier_t barrier;
-    pthread_barrier_init(&barrier,NULL,numThreads);
 
 	int rowsPerThread = n / numThreads;
 
@@ -74,7 +58,6 @@ void gameOfLife(bool **board, int n, int m, int numThreads) {
 		threadArgs[i].m = m;
 		threadArgs[i].board = board;
 		threadArgs[i].resBoard = resBoard;
-        threadArgs[i].barrier = &barrier;
 
 		pthread_create(&threads[i], NULL, gameOfLifeThread, (void *)&threadArgs[i]);
 	}
@@ -83,8 +66,7 @@ void gameOfLife(bool **board, int n, int m, int numThreads) {
 	for (int i = 0; i < numThreads; i++)
 		pthread_join(threads[i], NULL);
 
-    pthread_barrier_destroy(&barrier);
-	
+    memcpy(board,resBoard,(m*n)*sizeof(bool));
     free(resBoard);
 }
 
@@ -115,9 +97,7 @@ int main(int argc, char *argv[]) {
 
 	fscanf(inputFile, "%d %d", &n, &m);
 
-	bool **board = (bool **)malloc(n * sizeof(bool *));
-	for (int i = 0; i < n; i++)
-		board[i] = (bool *)malloc(m * sizeof(bool));
+	bool *board = (bool *)malloc(n * m * sizeof(bool));
 
 	// Citire date matrice de intrare
 	read_input(board,n,m,inputFile);
@@ -129,8 +109,6 @@ int main(int argc, char *argv[]) {
 	print_output(board,n,m,outputFile);
 
 	// Eliberare memorie
-	for (int i = 0; i < n; i++)
-		free(board[i]);
 	free(board);
 
 	return 0;
