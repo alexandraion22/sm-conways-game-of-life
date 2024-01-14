@@ -1,0 +1,51 @@
+Elapsed Time: 14.912s
+    Paused Time: 0s
+Effective CPU Utilization: 7.5% (2.394 out of 32 logical CPUs)
+ | The metric value is low, which may signal a poor logical CPU cores
+ | utilization caused by load imbalance, threading runtime overhead, contended
+ | synchronization, or thread/process underutilization. Explore sub-metrics to
+ | estimate the efficiency of MPI and OpenMP parallelism or run the Locks and
+ | Waits analysis to identify parallel bottlenecks for other parallel runtimes.
+ |
+    Total Thread Count: 9
+     | The number of threads in the application is significantly lower than the
+     | number of logical cores on the machine. Check if it is resulted by thread
+     | number hard coding that limits application scalability.
+     |
+        Thread Oversubscription: 0s (0.0% of CPU Time)
+    Wait Time with poor CPU Utilization: 3.154s (100.0% of Wait Time)
+
+        Top Waiting Objects
+        Sync Object                                                                Wait Time with poor CPU Utilization  (% from Object Wait Time)(%)  Wait Count
+        -------------------------------------------------------------------------  -----------------------------------  ----------------------------  ----------
+        Thread 0xe2da0e65                                                                                       3.107s                        100.0%           8
+        Stream ../../output/pthreads/result_of_input_10000_x_20000.txt 0xbafb1d96                               0.047s                        100.0%           1
+        Stream 0x0ad0fd78                                                                                       0.000s                        100.0%           1
+        Stream 0x0299d963                                                                                       0.000s                        100.0%           1
+        Stream ../../input/input_10000_x_20000.txt 0x88e25079                                                   0.000s                        100.0%           1
+    Spin and Overhead Time: 0s (0.0% of CPU Time)
+
+        Top Functions with Spin or Overhead Time
+        Function  Module  Spin and Overhead Time  (% from CPU Time)(%)
+        --------  ------  ----------------------  --------------------
+Collection and Platform Info
+    Application Command Line: ./game_of_life "input_10000_x_20000.txt" "8" 
+    Operating System: 4.18.0-481.el8.x86_64 DISTRIB_ID=Ubuntu DISTRIB_RELEASE=22.04 DISTRIB_CODENAME=jammy DISTRIB_DESCRIPTION="Ubuntu 22.04.3 LTS"
+    Computer Name: haswell-wn30.grid.pub.ro
+    Result Size: 4.7 MB 
+    Collection start time: 16:58:22 14/01/2024 UTC
+    Collection stop time: 16:58:37 14/01/2024 UTC
+    Collector Type: User-mode sampling and tracing
+    CPU
+        Name: Intel(R) Xeon(R) E5/E7 v3 Processor code named Haswell
+        Frequency: 2.600 GHz
+        Logical CPU Count: 32
+        LLC size: 21.0 MB 
+        Cache Allocation Technology
+            Level 2 capability: not detected
+            Level 3 capability: not detected
+
+If you want to skip descriptions of detected performance issues in the report,
+enter: vtune -report summary -report-knob show-issues=false -r <my_result_dir>.
+Alternatively, you may view the report in the csv format: vtune -report
+<report_name> -format=csv.

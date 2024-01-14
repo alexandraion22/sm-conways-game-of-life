@@ -1,0 +1,111 @@
+11 [139891520820672] INFO perfrun.launcher <> - Launcher main begin
+12 [139891520820672] INFO perfrun.launcher <> - MessageCatalogInit finished
+12 [139891520820672] INFO perfrun.launcher <> - Launcher instance created
+12 [139891520820672] INFO perfrun.launcher <> - argc = 7; cmdline = /opt/intel/oneapi/vtune/2024.0/bin64/amplxe-runss --ui-output-format xml --ui-output-fd 5 --option-file /export/home/acs/stud/a/alexandra_ana.ion/sm-conways-game-of-life/src/openmp/result_dir_openmp_1threading.haswell-wn30.grid.pub.ro/config/runss.options 
+62 [139891520820672] INFO perfrun.launcher <> - create msngr2::ICliToolContext
+63 [139891520820672] INFO perfrun.launcher <> - create file finder object
+63 [139891520820672] INFO perfrun.launcher <> - create a result directory: pattern = /export/home/acs/stud/a/alexandra_ana.ion/sm-conways-game-of-life/src/openmp/result_dir_openmp_1threading.haswell-wn30.grid.pub.ro pid = 4294967295
+76 [139891520820672] INFO perfrun.sdk <> - checked that the directory /export/home/acs/stud/a/alexandra_ana.ion/sm-conways-game-of-life/src/openmp/result_dir_openmp_1threading.haswell-wn30.grid.pub.ro is a local directory
+77 [139891520820672] INFO perfrun.sdk <> - the directory /export/home/acs/stud/a/alexandra_ana.ion/sm-conways-game-of-life/src/openmp/result_dir_openmp_1threading.haswell-wn30.grid.pub.ro is located on a share or its FS ID is unknown 12805120
+77 [139891520820672] INFO perfrun.sdk <> - checked that the directory /tmp/amplxe-tmp-alexandra_ana.ion is a local directory
+77 [139891520820672] INFO perfrun.sdk <> - the directory /tmp/amplxe-tmp-alexandra_ana.ion is a local directory with FS type ID 61267
+77 [139891520820672] INFO perfrun.launcher <> - Create a local result directory /tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742 due to the user result path /export/home/acs/stud/a/alexandra_ana.ion/sm-conways-game-of-life/src/openmp/result_dir_openmp_1threading.haswell-wn30.grid.pub.ro is located on a share
+77 [139891520820672] INFO perfrun.launcher <> - create data directory = /tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742/data.0
+78 [139891520820672] INFO perfrun.launcher <> - create data directory = /export/home/acs/stud/a/alexandra_ana.ion/sm-conways-game-of-life/src/openmp/result_dir_openmp_1threading.haswell-wn30.grid.pub.ro/data.0
+78 [139891520820672] INFO perfrun.launcher <> - Creating the master collection flag
+133 [139891520820672] INFO perfrun.launcher <> - Done creating the master collection flag
+147 [139891369305664] INFO perfrun.launcher <> - plugin [remoteplug] was disabled because it doesn't support the given collection type.
+148 [139891369305664] INFO perfrun.sdk <> - Allocating TMU :/tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742/data.0/systemcollector-2751644-haswell-wn30.grid.pub.ro.sc
+148 [139891369305664] INFO perfrun.system <> - Tpss based collection
+148 [139891369305664] INFO perfrun.launcher <> - plugin [ptracecollector] was disabled because it doesn't support the given collection type.
+148 [139891369305664] INFO perfrun.launcher <> - plugin [gpu] was disabled because it doesn't support the given collection type.
+148 [139891369305664] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+148 [139891369305664] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+148 [139891369305664] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+148 [139891369305664] INFO perfrun.mrte <> - system-wide mode is 0
+148 [139891369305664] INFO perfrun.mrte <> - Getting  mrte profiling environment ...
+159 [139891369305664] INFO perfrun.mrte <> - INTEL_MRTE_DATA_DIR=/tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742/data.0
+159 [139891369305664] INFO perfrun.mrte <> - INTEL_MRTE_HOST_NAME=haswell-wn30.grid.pub.ro
+159 [139891369305664] INFO perfrun.mrte <> - JAVA_TOOL_OPTIONS=-agentlib:amplxe_tpssmrte_javaprof_1.0 -Dsun.boot.library.path=/opt/intel/oneapi/vtune/2024.0/lib32/runtime:/opt/intel/oneapi/vtune/2024.0/lib64/runtime
+159 [139891369305664] INFO perfrun.mrte <> - LD_LIBRARY_PATH=/opt/intel/oneapi/vtune/2024.0/lib32/runtime:/opt/intel/oneapi/vtune/2024.0/lib64/runtime:/.singularity.d/libs
+159 [139891369305664] INFO perfrun.mrte <> - CORECLR_ENABLE_PROFILING=1
+159 [139891369305664] INFO perfrun.mrte <> - CORECLR_PROFILER={AA5E4821-E3B1-479c-B7FF-5AD047D22CED}
+159 [139891369305664] INFO perfrun.mrte <> - CORECLR_PROFILER_PATH=/opt/intel/oneapi/vtune/2024.0/lib64/libamplxe_samplingmrte_clrprof_1.0.so
+159 [139891369305664] INFO perfrun.mrte <> - INTEL_MRTE_PROFILER_MODE=mixed
+159 [139891369305664] INFO perfrun.mrte <> - Data directory: /tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742/data.0
+159 [139891369305664] INFO perfrun.mrte <> - Mrte plugin is initialized
+159 [139891369305664] INFO perfrun.launcher <> - plugin [emon] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [cuscol] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [stdsrc] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [sep] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [vtsspp] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [perf] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [aoclprofile] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.tpss <> - initialize tpss controller
+159 [139891369305664] INFO perfrun.tpss <> - configure collection mode: value = cpu:counters:nostack
+159 [139891369305664] INFO perfrun.tpss <> - configure collection mode: value = cpu:stack
+159 [139891369305664] INFO perfrun.tpss <> - configure collection mode: value = threading:stack
+159 [139891369305664] INFO perfrun.tpss <> - configure collection mode: value = waiting:stack
+159 [139891369305664] INFO perfrun.tpss <> - configure collection mode: value = io:stack
+159 [139891369305664] INFO perfrun.tpss <> - default obj-size-min=1024
+159 [139891369305664] INFO perfrun.tpss <> - default hash-table-size=0
+159 [139891369305664] INFO perfrun.launcher <> - plugin [media] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [parallelfs] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [power] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [ipmwatch] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [os_counters] was disabled because it doesn't support the given collection type.
+159 [139891369305664] INFO perfrun.launcher <> - plugin [l0_metrics] was disabled because it doesn't support the given collection type.
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: LD_LIBRARY_PATH = /opt/intel/oneapi/vtune/2024.0/lib32/runtime:/opt/intel/oneapi/vtune/2024.0/lib64/runtime:/.singularity.d/libs
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY32 = /opt/intel/oneapi/vtune/2024.0/lib32/runtime/libittnotify_collector.so
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY64 = /opt/intel/oneapi/vtune/2024.0/lib64/runtime/libittnotify_collector.so
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: INTEL_ITTNOTIFY_GROUPS = 
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER32 = /opt/intel/oneapi/vtune/2024.0/lib32/runtime/libittnotify_collector.so
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER64 = /opt/intel/oneapi/vtune/2024.0/lib64/runtime/libittnotify_collector.so
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: OMP_TOOL_LIBRARIES = /opt/intel/oneapi/vtune/2024.0/lib32/runtime/libittnotify_collector.so:/opt/intel/oneapi/vtune/2024.0/lib64/runtime/libittnotify_collector.so
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: ENABLE_JITPROFILING = 1
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: CL_CONFIG_USE_VTUNE = True
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: LD_PRELOAD = libittnotify_collector.so:
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_DATA_DIR = /tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742/data.0
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_HOST_NAME = haswell-wn30.grid.pub.ro
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: JAVA_TOOL_OPTIONS = -agentlib:amplxe_tpssmrte_javaprof_1.0 -Dsun.boot.library.path=/opt/intel/oneapi/vtune/2024.0/lib32/runtime:/opt/intel/oneapi/vtune/2024.0/lib64/runtime
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: LD_LIBRARY_PATH = /opt/intel/oneapi/vtune/2024.0/lib32/runtime:/opt/intel/oneapi/vtune/2024.0/lib64/runtime:/.singularity.d/libs
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: CORECLR_ENABLE_PROFILING = 1
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: CORECLR_PROFILER = {AA5E4821-E3B1-479c-B7FF-5AD047D22CED}
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: CORECLR_PROFILER_PATH = /opt/intel/oneapi/vtune/2024.0/lib64/libamplxe_samplingmrte_clrprof_1.0.so
+160 [139891520820672] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_PROFILER_MODE = mixed
+160 [139891520820672] INFO perfrun.launcher <> - RpcServer: run RPC server to handle requests
+161 [139891520820672] INFO perfrun.launcher <> - Launcher: command line to start before modification = ./game_of_life input_10000_x_20000.txt
+161 [139891520820672] INFO perfrun.launcher <> - Launcher: command line to start after modification = /opt/intel/oneapi/vtune/2024.0/bin64/pin -error_file /tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742/data.0/pinerr.tpsslog -detach_reattach -follow_execv -tool_load_option deepbind -t64 /opt/intel/oneapi/vtune/2024.0/lib64/libtpsstool.so -t /opt/intel/oneapi/vtune/2024.0/lib32/libtpsstool.so -server_name tpss_ipc.2751644 -prd_dir /opt/intel/oneapi/vtune/2024.0 -- ./game_of_life input_10000_x_20000.txt
+161 [139891520820672] INFO perfrun.launcher <> - ProcessCreator object was created
+162 [139891520820672] INFO perfrun.launcher <> - Launcher: the process was started in suspend mode
+177 [139891369305664] WARN perfrun.system <> - Could not do anything with /sys/kernel/debug/kvm: boost::filesystem::status: Permission denied: "/sys/kernel/debug/kvm", at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:787
+177 [139891369305664] WARN perfrun.system <> - Folder "/var/run/libvirt/qemu/"doesn't exist, at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:800
+179 [139891369305664] WARN perfrun.sdk <> - Failed to find xl binary on any of the system paths: /bin, /sbin, /usr/bin, /usr/sbin., at file: vcs/perfrun1/sdk/src/utils.cpp:204
+179 [139891369305664] WARN perfrun.system <> - Could not start ContainerMapping collector, at file: vcs/perfrun1/plugins/system/src/controller.cpp:448
+183 [139891369305664] INFO perfrun.vdso <> - Helper runtool '/opt/intel/oneapi/vtune/2024.0/bin32/amplxe-runss -dump-vdso -r /tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742 --tmp-dir /tmp/amplxe-tmp-alexandra_ana.ion' returned 1
+307 [139891369305664] INFO perfrun.vdso <> - Helper runtool '/opt/intel/oneapi/vtune/2024.0/bin64/amplxe-runss -dump-vdso -r /tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742 --tmp-dir /tmp/amplxe-tmp-alexandra_ana.ion' returned 0
+307 [139891369305664] INFO perfrun.itt <> - start itt controller for pid #2751649
+307 [139891369305664] INFO perfrun.tpss <> - start tpss controller for pid #2751649
+358 [139891520820672] INFO perfrun.launcher <> - Launcher: all plugins were started
+358 [139891520820672] INFO perfrun.launcher <> - DirectoryMonitor object was created
+358 [139891520820672] INFO perfrun.launcher <> - DirectoryMonitor: a callback was added
+358 [139891520820672] INFO perfrun.launcher <> - DirectoryMonitor was started with pingTime = 1000
+358 [139891520820672] INFO perfrun.launcher <> - DeadlineTimer is going to be constructed
+358 [139891520820672] INFO perfrun.launcher <> - DeadlineTimer: a callback was added
+368 [139891520820672] INFO perfrun.launcher <> - Launcher: resume the profiled application and  wait its termination or stop command
+29370 [139891520820672] INFO perfrun.launcher <> - Launcher: the profiled application was terminated  with exit code = 0
+29372 [139891369305664] INFO perfrun.itt <> - detach itt controller
+29372 [139891369305664] INFO perfrun.itt <> - detach itt controller done
+29372 [139891369305664] INFO perfrun.tpss <> - stop tpss controller
+29372 [139891369305664] INFO perfrun.sdk <> - De-allocating TMU: /tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742/data.0/systemcollector-2751644-haswell-wn30.grid.pub.ro.sc
+29372 [139891369305664] INFO perfrun.system <> - closed the system trace file: /tmp/amplxe-tmp-alexandra_ana.ion/amplxe-res-2751644-262229623331862742/data.0/systemcollector-2751644-haswell-wn30.grid.pub.ro.sc
+29372 [139891520820672] INFO perfrun.launcher <> - Launcher: all plugins were stopped.
+29373 [139891520820672] INFO perfrun.launcher <> - DeadlineTimer is going to be destroyed
+29373 [139891520820672] INFO perfrun.launcher <> - DeadlineTimer was destroyed
+29373 [139891520820672] INFO perfrun.launcher <> - DirectoryMonitor object was destroyed
+29373 [139891520820672] WARN perfrun.launcher <> - Stop command is ignored because it is received when collection is already stopped, at file: vcs/perfrun1/launcher/src/command_handler.cpp:226
+29384 [139891520820672] INFO perfrun.launcher <> - Application exit code: 0
+29384 [139891520820672] INFO perfrun.launcher <> - Exit code: 0

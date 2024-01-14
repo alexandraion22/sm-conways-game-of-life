@@ -1,0 +1,34 @@
+# AMPLXE_PERF_STAT
+# hostname : haswell-wn30.grid.pub.ro
+# os release : 4.18.0-481.el8.x86_64
+# arch : x86_64
+# cpuid : GenuineIntel,6,63,2
+# cpudesc : Intel(R) Xeon(R) CPU E5-2640 v3 @ 2.60GHz
+# total memory : 130364552 kB
+# nrcpus online : 32
+# nrcpus avail : 32
+# sibling cores : 0-7,16-23
+# sibling cores : 8-15,24-31
+# sibling threads : 0,16
+# sibling threads : 1,17
+# sibling threads : 2,18
+# sibling threads : 3,19
+# sibling threads : 4,20
+# sibling threads : 5,21
+# sibling threads : 6,22
+# sibling threads : 7,23
+# sibling threads : 8,24
+# sibling threads : 9,25
+# sibling threads : 10,26
+# sibling threads : 11,27
+# sibling threads : 12,28
+# sibling threads : 13,29
+# sibling threads : 14,30
+# sibling threads : 15,31
+# process id : 2752477
+;;118247366902;0
+;;101719517978;1
+;;182703078253;2
+;;3912336716;3
+;;2736125380;4
+;;186186092997;5
